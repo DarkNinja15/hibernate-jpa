@@ -32,4 +32,7 @@ public class CourseEntity {
             }
     )
     private List<AuthorEntity> authors;
+
+    @OneToMany( mappedBy = "course" )
+    private List<SectionEntity> sections;
 }

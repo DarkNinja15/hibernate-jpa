@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @NoArgsConstructor
 @Data
 @Entity
@@ -20,4 +22,11 @@ public class SectionEntity {
 
     @Column(name = "section_order")
     private int sectionOrder;
+
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private CourseEntity course;
+
+    @OneToMany(mappedBy = "section")
+    private List<LectureEntity> lectures;
 }

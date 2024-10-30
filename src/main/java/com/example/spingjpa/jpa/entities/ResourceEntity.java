@@ -19,4 +19,8 @@ public class ResourceEntity {
     private String name;
     private int size;
     private String url;
+
+    @OneToOne
+    @JoinColumn(name = "lecture_id")
+    private LectureEntity lecture;
 }

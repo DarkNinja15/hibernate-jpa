@@ -18,4 +18,12 @@ public class LectureEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "section_id")
+    private SectionEntity section;
+
+    @OneToOne
+    @JoinColumn(name = "resource_id")
+    private ResourceEntity resource;
 }
