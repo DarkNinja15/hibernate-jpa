@@ -1,22 +1,18 @@
 package com.example.spingjpa.jpa.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Data
 @Entity
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @Table(name = "lecture")
-public class LectureEntity {
+public class LectureEntity extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
     private String name;
 
     @ManyToOne

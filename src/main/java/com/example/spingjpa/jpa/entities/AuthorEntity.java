@@ -2,21 +2,18 @@ package com.example.spingjpa.jpa.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Data
 @Entity
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @Table(name = "authors")
-public class AuthorEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+public class AuthorEntity extends BaseEntity{
 
     @Column(
             name = "f_name",
@@ -35,19 +32,6 @@ public class AuthorEntity {
     )
     private String email;
     private int age;
-
-    @Column(
-            name = "created_at",
-            updatable = false,
-            nullable = false
-    )
-    private LocalDateTime createdAt;
-
-    @Column(
-            name = "last_modified",
-            insertable = false
-    )
-    private LocalDateTime lastModified;
 
     @ManyToMany(mappedBy = "authors")
     private List<CourseEntity> courses;

@@ -1,7 +1,9 @@
 package com.example.spingjpa.jpa;
 
 import com.example.spingjpa.jpa.entities.AuthorEntity;
+import com.example.spingjpa.jpa.entities.VideoEntity;
 import com.example.spingjpa.jpa.repository.AuthorRepository;
+import com.example.spingjpa.jpa.repository.VideoRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,16 +19,21 @@ public class JpaApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AuthorRepository authorRepository){
+	public CommandLineRunner commandLineRunner(AuthorRepository authorRepository, VideoRepository videoRepository){
 		return args -> {
-			var author = AuthorEntity.builder()
+			/*var author = AuthorEntity.builder()
 					.firstName("Itachi")
 					.lastName("Uchiha")
 					.age(21)
 					.email("itachi@akatsuki.com")
 					.createdAt(LocalDateTime.now())
 					.build();
-			authorRepository.save(author);
+			authorRepository.save(author);*/
+			var video = VideoEntity.builder()
+					.name("5 mins craft")
+					.length(5)
+					.build();
+			videoRepository.save(video);
 		};
 	}
 
