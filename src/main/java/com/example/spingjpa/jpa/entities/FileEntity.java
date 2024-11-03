@@ -14,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 @Entity
 @SuperBuilder
 @AllArgsConstructor
-@DiscriminatorValue(value = "F")
+//@DiscriminatorValue(value = "F")
 public class FileEntity extends ResourceEntity {
     private String type;
 }
